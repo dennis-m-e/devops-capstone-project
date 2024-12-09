@@ -129,7 +129,8 @@ class TestAccountService(TestCase):
     def test_read_an_account(self):
         """It should read an account"""
         account = AccountFactory()
-        response = self.client.post(BASE_URL,
+        response = self.client.post(
+            BASE_URL,
             json=account.serialize(),
             content_type="application/json"
         )
@@ -211,4 +212,3 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # Check for the CORS header
         self.assertEqual(response.headers.get('Access-Control-Allow-Origin'), '*')
-        
